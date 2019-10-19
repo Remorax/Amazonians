@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 489238}
   - component: {fileID: 9517998}
   - component: {fileID: 11424290}
+  - component: {fileID: 4770232869058503179}
   m_Layer: 0
   m_Name: SoldierFree
   m_TagString: Untagged
@@ -67,6 +68,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attachPoint: {fileID: 469924}
   Weapon: {fileID: 0}
+--- !u!114 &4770232869058503179
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 101486}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e78af57895f264b47a06bcf2a3356427, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &101794
 GameObject:
   m_ObjectHideFlags: 0
