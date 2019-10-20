@@ -8,6 +8,9 @@ public class Movement : MonoBehaviour {
     public float originalHeight;
     public bool isJump = false, isFall = false;
     public float gravity = 20.0f;
+    public Transform CameraPos;
+    public float horizontalSpeed = 2.0F;
+    public float verticalSpeed = 2.0F;
 
     // Use this for initialization
     void Start () {
@@ -26,11 +29,12 @@ public class Movement : MonoBehaviour {
         }
 
         if (Input.GetKey (KeyCode.Space)) {
-        	isJump = true;
             currJumpingSpeed = jumpSpeed;
-            Debug.Log("origHeight: " + originalHeight);
+            transform.position += transform.TransformDirection(Vector3.up) * Time.deltaTime * currJumpingSpeed;
+//            currJumpingSpeed -= gravity * Time.deltaTime;
+//            Debug.Log("origHeight: " + originalHeight);
         }
-
+/*
         if (isFall) {
         	transform.position += transform.TransformDirection (Vector3.down) * Time.deltaTime * currJumpingSpeed;
         	currJumpingSpeed += gravity * Time.deltaTime;
@@ -38,7 +42,7 @@ public class Movement : MonoBehaviour {
         		isFall = false;
         	}
         }
-
+        
         if (isJump) {
         	transform.position += transform.TransformDirection (Vector3.up) * Time.deltaTime * currJumpingSpeed;
         	currJumpingSpeed -= gravity * Time.deltaTime;
@@ -47,11 +51,18 @@ public class Movement : MonoBehaviour {
         		isJump = false;
         	} 
         }
-
+        */
         if (Input.GetKey ("a") && !Input.GetKey ("d")) {
                 transform.position += transform.TransformDirection (Vector3.left) * Time.deltaTime * movementSpeed;
             } else if (Input.GetKey ("d") && !Input.GetKey ("a")) {
                 transform.position -= transform.TransformDirection (Vector3.left) * Time.deltaTime * movementSpeed;
             }
-        }
+        float h = horizontalSpeed * Input.GetAxis("Mouse X");
+        float v = verticalSpeed * Input.GetAxis("Mouse Y");
+
+        transform.Rotate(v, h, 0);
+        CameraPos.position = transform.position + new Vector3(0,5,1);
+        CameraPos.rotation = transform.rotation;
+        //CameraPos.Rotate(v, h, 0);
+    }
 }
