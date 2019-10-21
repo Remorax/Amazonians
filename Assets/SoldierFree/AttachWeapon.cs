@@ -13,6 +13,8 @@ public class AttachWeapon : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	
-	}
+        Weapon.parent = attachPoint;
+        Weapon.position = attachPoint.position;
+        Weapon.rotation = attachPoint.rotation;
+    }
 }

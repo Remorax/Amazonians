@@ -4,17 +4,27 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour {
 
+ 
     public float movementSpeed, jumpSpeed, currJumpingSpeed=0;
     public float originalHeight;
     public bool isJump = false, isFall = false;
     public float gravity = 20.0f;
     public Transform CameraPos;
-    public float horizontalSpeed = 2.0F;
-    public float verticalSpeed = 2.0F;
+    public float horizontalSpeed;
+    public float verticalSpeed;
+    public Transform Weapon;
+
 
     // Use this for initialization
     void Start () {
     	originalHeight = transform.position.y;
+        Weapon.parent = CameraPos;
+        Weapon.position = CameraPos.position + CameraPos.forward + CameraPos.right - CameraPos.up * 1.5f;
+        Weapon.rotation = CameraPos.rotation;
+    }
+
+    void OnCollisionEnter(Collision collision)
+    {
     }
 
     //Update is called once per frame
@@ -61,8 +71,15 @@ public class Movement : MonoBehaviour {
         float v = verticalSpeed * Input.GetAxis("Mouse Y");
 
         transform.Rotate(v, h, 0);
-        CameraPos.position = transform.position + new Vector3(0,5,1);
+        CameraPos.position = transform.position + transform.forward*2 + Vector3.up*5;
         CameraPos.rotation = transform.rotation;
+        //Weapon.position = transform.position + transform.forward * 4 + Vector3.up * 2.5f + Vector3.right * 2.0f;
+        //Quaternion q = Quaternion.AngleAxis(-20f, transform.up);
+        //Weapon.rotation = q*transform.rotation;
+        if (Vector3.Angle(transform.up,Vector3.up)>60.0f)
+        {
+            transform.up = Vector3.up;
+        }
         //CameraPos.Rotate(v, h, 0);
     }
 }
