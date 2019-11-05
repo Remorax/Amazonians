@@ -14,6 +14,7 @@ public class ElephantMove : MonoBehaviour
     public float horizontalSpeed;
     public float verticalSpeed;
     public Animator anm;
+    public float health = 100.0f;
 
 
     // Use this for initialization
@@ -25,7 +26,6 @@ public class ElephantMove : MonoBehaviour
     void OnCollisionEnter(Collision collision)
     {
     }
-
     //Update is called once per frame
     void Update()
     {
