@@ -55,6 +55,7 @@
   <ItemGroup>
      <Compile Include="Assets\crosshairs.cs" />
      <Compile Include="Assets\ElephantMove.cs" />
+     <Compile Include="Assets\ForestSounds.cs" />
      <Compile Include="Assets\GreenForest\PostProcessing\Runtime\Attributes\GetSetAttribute.cs" />
      <Compile Include="Assets\GreenForest\PostProcessing\Runtime\Attributes\MinAttribute.cs" />
      <Compile Include="Assets\GreenForest\PostProcessing\Runtime\Attributes\TrackballAttribute.cs" />
@@ -103,6 +104,7 @@
      <Compile Include="Assets\gun.cs" />
      <Compile Include="Assets\Movement.cs" />
      <Compile Include="Assets\SoldierFree\AttachWeapon.cs" />
+     <Compile Include="Assets\sound.cs" />
      <Compile Include="Assets\Target.cs" />
      <None Include="Assets\GreenForest\PostProcessing\Resources\Shaders\DepthOfField.shader" />
      <None Include="Assets\GreenForest\PostProcessing\Resources\Shaders\MotionBlur.cginc" />

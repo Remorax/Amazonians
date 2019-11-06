@@ -10,6 +10,7 @@ public class gun : MonoBehaviour
 
     public Camera fpsCam;
     public ParticleSystem MuzzleFlash;
+    public AudioSource MusicSource;
 
     // Update is called once per frame
     void Update()
@@ -20,11 +21,19 @@ public class gun : MonoBehaviour
 
     }
 
+	public void gunfire()
+    {
+    	MusicSource.clip = Resources.Load<AudioClip>("MachineGun");
+    	MusicSource.volume = 0.05f;
+    	MusicSource.Play();
+    }
+
     void Shoot()
     {
     	// MuzzleFlash.transform.position = Input.mousePosition;
     	MuzzleFlash.Play();
     	RaycastHit hit;
+    	gunfire();
     	if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit, range))
     	{
     		Target target = hit.transform.GetComponent<Target>();
