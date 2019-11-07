@@ -4,7 +4,7 @@ sceneSetups:
   isActive: 0
 - path: Assets/SoldierFree/SoldierFreeScene.unity
   isLoaded: 1
-  isActive: 0
+  isActive: 1
 - path: Assets/Elephant_Jahaziel/Scene/Elephant.unity
   isLoaded: 1
-  isActive: 1
+  isActive: 0
