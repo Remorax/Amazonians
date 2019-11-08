@@ -61,6 +61,10 @@ public class Movement : MonoBehaviour {
 
     //Update is called once per frame
     void Update () {
+        if(PauseMenu.GameIsPaused)
+        {
+            return;
+        }
         // Debug.Log("Yes emtering", Input.GetKey ("w"));
         if (Input.GetKeyDown("r") && !onElephant)
         {
