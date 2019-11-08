@@ -1,0 +1,174 @@
+fileFormatVersion: 2
+guid: 02e80e32776dd154f831c016492e87a2
+timeCreated: 1529894487
+licenseType: Store
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: Left_Oar1
+    100002: Left_Oar2
+    100004: Left_Oar3
+    100006: Left_Oar4
+    100008: Left_Oar5
+    100010: Left_Oar6
+    100012: Left_Oar7
+    100014: Left_Oars
+    100016: //RootNode
+    100018: Longship 1
+    100020: Right_Oar1
+    100022: Right_Oar2
+    100024: Right_Oar3
+    100026: Right_Oar4
+    100028: Right_Oar5
+    100030: Right_Oar6
+    100032: Right_Oar7
+    100034: Right_Oars
+    100036: Rudder
+    100038: Sail_Down
+    100040: Sail_Up
+    400000: Left_Oar1
+    400002: Left_Oar2
+    400004: Left_Oar3
+    400006: Left_Oar4
+    400008: Left_Oar5
+    400010: Left_Oar6
+    400012: Left_Oar7
+    400014: Left_Oars
+    400016: //RootNode
+    400018: Longship 1
+    400020: Right_Oar1
+    400022: Right_Oar2
+    400024: Right_Oar3
+    400026: Right_Oar4
+    400028: Right_Oar5
+    400030: Right_Oar6
+    400032: Right_Oar7
+    400034: Right_Oars
+    400036: Rudder
+    400038: Sail_Down
+    400040: Sail_Up
+    2300000: Left_Oar1
+    2300002: Left_Oar2
+    2300004: Left_Oar3
+    2300006: Left_Oar4
+    2300008: Left_Oar5
+    2300010: Left_Oar6
+    2300012: Left_Oar7
+    2300014: Longship 1
+    2300016: Right_Oar1
+    2300018: Right_Oar2
+    2300020: Right_Oar3
+    2300022: Right_Oar4
+    2300024: Right_Oar5
+    2300026: Right_Oar6
+    2300028: Right_Oar7
+    2300030: Rudder
+    2300032: Sail_Down
+    2300034: Sail_Up
+    3300000: Left_Oar1
+    3300002: Left_Oar2
+    3300004: Left_Oar3
+    3300006: Left_Oar4
+    3300008: Left_Oar5
+    3300010: Left_Oar6
+    3300012: Left_Oar7
+    3300014: Longship 1
+    3300016: Right_Oar1
+    3300018: Right_Oar2
+    3300020: Right_Oar3
+    3300022: Right_Oar4
+    3300024: Right_Oar5
+    3300026: Right_Oar6
+    3300028: Right_Oar7
+    3300030: Rudder
+    3300032: Sail_Down
+    3300034: Sail_Up
+    4300000: Longship
+    4300002: Sail_Down
+    4300004: Sail_Up
+    4300006: Rudder
+    4300008: Right_Oar1
+    4300010: Right_Oar2
+    4300012: Right_Oar3
+    4300014: Right_Oar4
+    4300016: Right_Oar5
+    4300018: Right_Oar6
+    4300020: Right_Oar7
+    4300022: Left_Oar1
+    4300024: Left_Oar2
+    4300026: Left_Oar3
+    4300028: Left_Oar4
+    4300030: Left_Oar5
+    4300032: Left_Oar6
+    4300034: Left_Oar7
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
