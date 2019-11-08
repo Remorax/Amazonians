@@ -627,6 +627,18 @@ Animator:
     type: 3}
   m_PrefabInstance: {fileID: 667790661}
   m_PrefabAsset: {fileID: 0}
+--- !u!23 &255948072 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 23964011937865272, guid: d7e0e3051694820429ee013f39c0fb2d,
+    type: 3}
+  m_PrefabInstance: {fileID: 577086248}
+  m_PrefabAsset: {fileID: 0}
+--- !u!137 &261743727 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 13700006, guid: fe55e5a0c1bcd72488aa4508bea6f93b,
+    type: 3}
+  m_PrefabInstance: {fileID: 340295421}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &273282254
 GameObject:
   m_ObjectHideFlags: 0
@@ -6515,6 +6527,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Elephant
       objectReference: {fileID: 0}
+    - target: {fileID: 9500000, guid: 9e9c8c5bbda655a48b36b528b5561630, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: af472812a384a2d4582ffde45dfb0e89, type: 2}
+    - target: {fileID: 9500000, guid: 9e9c8c5bbda655a48b36b528b5561630, type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9500000, guid: 9e9c8c5bbda655a48b36b528b5561630, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 400008, guid: 9e9c8c5bbda655a48b36b528b5561630, type: 3}
       propertyPath: m_LocalPosition.x
       value: 110.9
@@ -6567,18 +6591,6 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: cf7dd014c1e8288408e27ac9087b15ca, type: 2}
-    - target: {fileID: 9500000, guid: 9e9c8c5bbda655a48b36b528b5561630, type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: af472812a384a2d4582ffde45dfb0e89, type: 2}
-    - target: {fileID: 9500000, guid: 9e9c8c5bbda655a48b36b528b5561630, type: 3}
-      propertyPath: m_ApplyRootMotion
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9500000, guid: 9e9c8c5bbda655a48b36b528b5561630, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 13700000, guid: 9e9c8c5bbda655a48b36b528b5561630, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -6687,6 +6699,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 350f8ae1bd5e91f49aac424423a30187,
     type: 3}
   m_PrefabInstance: {fileID: 381880870}
+  m_PrefabAsset: {fileID: 0}
+--- !u!137 &880423399 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 13700000, guid: fe55e5a0c1bcd72488aa4508bea6f93b,
+    type: 3}
+  m_PrefabInstance: {fileID: 340295421}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &889077997 stripped
 Transform:
@@ -6987,6 +7005,13 @@ MonoBehaviour:
   elephant: {fileID: 568893901}
   e1: {fileID: 235140984}
   e2: {fileID: 1721279366}
+  boss: {fileID: 467605164}
+  axe: {fileID: 255948072}
+  boss_r1: {fileID: 880423399}
+  boss_r2: {fileID: 1564332077}
+  boss_r3: {fileID: 1990740590}
+  boss_r4: {fileID: 261743727}
+  tiger_r: {fileID: 1711363321}
   anm_elephant: {fileID: 568893910}
   onElephant: 0
 --- !u!114 &1046822136
@@ -8031,6 +8056,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 522904619}
   m_PrefabAsset: {fileID: 0}
+--- !u!137 &1564332077 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 13700002, guid: fe55e5a0c1bcd72488aa4508bea6f93b,
+    type: 3}
+  m_PrefabInstance: {fileID: 340295421}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1579251399
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8084,6 +8115,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 037f992907f7f99408b210afaa620978, type: 3}
+--- !u!137 &1711363321 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 13700000, guid: 0faaca137bc5a794098e6b71f8bb22f6,
+    type: 3}
+  m_PrefabInstance: {fileID: 1836141198}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1721279364 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 101486, guid: cbd7931bdf3a3e942a49a282a8121ac0,
@@ -8954,6 +8991,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f8447ed3459ba5d46a002c9ff0695add, type: 3}
+--- !u!137 &1990740590 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 13700004, guid: fe55e5a0c1bcd72488aa4508bea6f93b,
+    type: 3}
+  m_PrefabInstance: {fileID: 340295421}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1998294388 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 8e11e18451be5614bbc355f5024668d0,

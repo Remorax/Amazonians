@@ -20,12 +20,25 @@ public class Movement : MonoBehaviour {
     public GameObject elephant;
     public Enemy1Motion e1;
     public Enemy2Motion e2;
+    public ButtonFunction boss;
+    public Renderer axe;
+    public Renderer boss_r1;
+    public Renderer boss_r2;
+    public Renderer boss_r3;
+    public Renderer boss_r4;
+    public Renderer tiger_r;
     public Animator anm_elephant;
     public bool onElephant=false;
 
 
     // Use this for initialization
     void Start () {
+        axe.enabled = false;
+        boss_r1.enabled = false;
+        boss_r2.enabled = false;
+        boss_r3.enabled = false;
+        boss_r4.enabled = false;
+        tiger_r.enabled = false;
         onElephant = false;
     	originalHeight = transform.position.y;
         Weapon.parent = CameraPos;
@@ -59,6 +72,16 @@ public class Movement : MonoBehaviour {
             onElephant = false;
             anm_elephant.enabled = false;
             transform.position = elephant.transform.position - 15 * Vector3.forward + 15 * Vector3.right;
+        }
+        if(!e1.gameObject.activeSelf && !e2.gameObject.activeSelf)
+        {
+            axe.enabled = true;
+            boss_r1.enabled = true;
+            boss_r2.enabled = true;
+            boss_r3.enabled = true;
+            boss_r4.enabled = true;
+            tiger_r.enabled = true;
+
         }
         if (e1.gameObject.activeSelf && e1.do_walk > 2 && Vector3.Distance(transform.position, e1.transform.position) <= 25)
         {
