@@ -110,12 +110,12 @@ public class Movement : MonoBehaviour {
                 c.s_time = Time.time;
                 level1comp = true;
                 level += 1;
-                axe.enabled = true;
+/*                axe.enabled = true;
                 boss_r1.enabled = true;
                 boss_r2.enabled = true;
                 boss_r3.enabled = true;
                 boss_r4.enabled = true;
-                tiger_r.enabled = true;
+                tiger_r.enabled = true;*/
                 e1.gameObject.SetActive(true);
                 e2.gameObject.SetActive(true);
                 elephant.SetActive(false);
@@ -123,8 +123,6 @@ public class Movement : MonoBehaviour {
                 c.flg_update = false;
                 transform.position = new Vector3(211.75f, 21.51f, 255.9f);
                 transform.rotation = Quaternion.Euler(0, 0, 0);
-                e1.gameObject.SetActive(true);
-                e2.gameObject.SetActive(true);
                 CameraPos.position = transform.position + transform.forward * 2 + Vector3.up * 5;
                 CameraPos.rotation = transform.rotation;
                 onElephant = false;
