@@ -195,6 +195,8 @@ MonoBehaviour:
   anim_walk: {fileID: 9100000, guid: eb79e3fd0dd669f40a90a984b92a0ccf, type: 2}
   anim_jump: {fileID: 9100000, guid: 54ff599963ec97843ad4d4ddeeb61810, type: 2}
   elephant: {fileID: 329136958}
+  e1: {fileID: 1340264372}
+  e2: {fileID: 1096136397}
   anm_elephant: {fileID: 329136964}
   onElephant: 0
 --- !u!1 &191322643
@@ -5623,11 +5625,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e16116b3168b30448a611d81c22b2e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 0
+  movementSpeed: 5
   animator: {fileID: 1096136396}
   anim_idle: {fileID: 9100000, guid: a8555c0cff30527479e32562cef9141f, type: 2}
   anim_walk: {fileID: 9100000, guid: 75d3a58b3d7879f41926561701407a48, type: 2}
   anim_jump: {fileID: 9100000, guid: 54ff599963ec97843ad4d4ddeeb61810, type: 2}
+  hold_for: 5
+  max_dist: 40
+  do_walk: 1
 --- !u!114 &1096136398
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5821,11 +5826,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1054a382ec36d964aae7fb4cad55f31c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 0
+  movementSpeed: 5
   animator: {fileID: 1340264377}
   anim_idle: {fileID: 9100000, guid: a8555c0cff30527479e32562cef9141f, type: 2}
   anim_walk: {fileID: 9100000, guid: 75d3a58b3d7879f41926561701407a48, type: 2}
   anim_jump: {fileID: 9100000, guid: 54ff599963ec97843ad4d4ddeeb61810, type: 2}
+  hold_for: 5
+  max_dist: 40
+  do_walk: 1
 --- !u!114 &1340264373
 MonoBehaviour:
   m_ObjectHideFlags: 0

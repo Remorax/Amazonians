@@ -18,6 +18,8 @@ public class Movement : MonoBehaviour {
     public RuntimeAnimatorController anim_walk;
     public RuntimeAnimatorController anim_jump;
     public GameObject elephant;
+    public Enemy1Motion e1;
+    public Enemy2Motion e2;
     public Animator anm_elephant;
     public bool onElephant=false;
 
@@ -57,6 +59,43 @@ public class Movement : MonoBehaviour {
             onElephant = false;
             anm_elephant.enabled = false;
             transform.position = elephant.transform.position - 15 * Vector3.forward + 15 * Vector3.right;
+        }
+        if (e1.gameObject.activeSelf && e1.do_walk > 2 && Vector3.Distance(transform.position, e1.transform.position) <= 25)
+        {
+            Debug.Log("You got caught");
+            transform.position = new Vector3(211.75f, 21.51f, 255.9f);
+            if(!e2.gameObject.activeSelf)
+            {
+                e2.gameObject.SetActive(true);
+                e2.transform.position = e2.start_pos;
+                e2.transform.Rotate(Vector3.up, 180);
+                e2.do_walk = 1;
+            }
+            transform.rotation = Quaternion.Euler(0, 0, 0);
+        }
+        else if (e2.gameObject.activeSelf && e2.do_walk > 2 && Vector3.Distance(transform.position, e2.transform.position) <= 25)
+        {
+            Debug.Log("You got caught");
+            transform.position = new Vector3(211.75f, 21.51f, 255.9f);
+            if (!e1.gameObject.activeSelf)
+            {
+                e1.gameObject.SetActive(true);
+                e1.transform.position = e1.start_pos;
+                e1.transform.Rotate(Vector3.up, 180);
+                e1.do_walk = 1;
+            }
+            transform.rotation = Quaternion.Euler(0, 0, 0);
+        }
+        if (Input.GetKeyDown("q"))
+        {
+            if(e1.do_walk<=2 && Vector3.Distance(transform.position,e1.transform.position)<=10)
+            {
+                e1.gameObject.SetActive(false);
+            }
+            else if (e2.do_walk <= 2 && Vector3.Distance(transform.position, e2.transform.position) <= 10)
+            {
+                e2.gameObject.SetActive(false);
+            }
         }
         if (!onElephant)
         {
