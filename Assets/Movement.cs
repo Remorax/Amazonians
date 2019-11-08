@@ -18,8 +18,10 @@ public class Movement : MonoBehaviour {
     public RuntimeAnimatorController anim_walk;
     public RuntimeAnimatorController anim_jump;
     public GameObject elephant;
+    public GameObject cutter;
     public Enemy1Motion e1;
     public Enemy2Motion e2;
+    public CutterMotion c;
     public ButtonFunction boss;
     public Renderer axe;
     public Renderer boss_r1;
@@ -27,8 +29,12 @@ public class Movement : MonoBehaviour {
     public Renderer boss_r3;
     public Renderer boss_r4;
     public Renderer tiger_r;
+    public Renderer cutter_r1;
+    public Renderer cutter_r2;
     public Animator anm_elephant;
     public bool onElephant=false;
+    public int level=0;
+    private bool level1comp=false;
 
 
     // Use this for initialization
@@ -39,6 +45,9 @@ public class Movement : MonoBehaviour {
         boss_r3.enabled = false;
         boss_r4.enabled = false;
         tiger_r.enabled = false;
+        //cutter_r1.enabled = false;
+        //cutter_r2.enabled = false;
+        level1comp=false;
         onElephant = false;
     	originalHeight = transform.position.y;
         Weapon.parent = CameraPos;
@@ -65,6 +74,15 @@ public class Movement : MonoBehaviour {
                 anm_elephant.speed = 0.03f;
                 CameraPos.position = elephant.transform.position + Vector3.up * 5 + Vector3.forward * (-5.0f);
                 CameraPos.rotation = elephant.transform.rotation;
+                if (level == 0)
+                {
+                        level += 1;
+                    //cutter_r1.enabled = true;
+                    //cutter_r2.enabled = true;
+                   // Debug.Log("Here2");
+                    c.flg_update = true;
+                    c.s_time=Time.time;
+                }
             }
         }
         else if (Input.GetKeyDown("r") && onElephant)
@@ -72,52 +90,98 @@ public class Movement : MonoBehaviour {
             onElephant = false;
             anm_elephant.enabled = false;
             transform.position = elephant.transform.position - 15 * Vector3.forward + 15 * Vector3.right;
-        }
-        if(!e1.gameObject.activeSelf && !e2.gameObject.activeSelf)
-        {
-            axe.enabled = true;
-            boss_r1.enabled = true;
-            boss_r2.enabled = true;
-            boss_r3.enabled = true;
-            boss_r4.enabled = true;
-            tiger_r.enabled = true;
-
-        }
-        if (e1.gameObject.activeSelf && e1.do_walk > 2 && Vector3.Distance(transform.position, e1.transform.position) <= 25)
-        {
-            Debug.Log("You got caught");
-            transform.position = new Vector3(211.75f, 21.51f, 255.9f);
-            if(!e2.gameObject.activeSelf)
+            if (!level1comp)
             {
-                e2.gameObject.SetActive(true);
-                e2.transform.position = e2.start_pos;
-                e2.transform.Rotate(Vector3.up, 180);
-                e2.do_walk = 1;
+                level = 0;
+                c.animator.runtimeAnimatorController = anim_idle;
+                transform.position = new Vector3(122.3f, 16.3f, 181.5f);
+                elephant.transform.position = new Vector3(110.9f, 25.2f, 200f);
+                cutter.transform.position = new Vector3(120.8f, 30.5f, 245f);
+                c.flg_update = false;
+                elephant.SetActive(true);
+                cutter.SetActive(true);
             }
-            transform.rotation = Quaternion.Euler(0, 0, 0);
         }
-        else if (e2.gameObject.activeSelf && e2.do_walk > 2 && Vector3.Distance(transform.position, e2.transform.position) <= 25)
+        if (level==1)
         {
-            Debug.Log("You got caught");
-            transform.position = new Vector3(211.75f, 21.51f, 255.9f);
-            if (!e1.gameObject.activeSelf)
+            c.flg_update = true;
+            if(Vector3.Distance(elephant.transform.position, cutter.transform.position)<=25 && !level1comp)
             {
+                c.s_time = Time.time;
+                level1comp = true;
+                level += 1;
+                axe.enabled = true;
+                boss_r1.enabled = true;
+                boss_r2.enabled = true;
+                boss_r3.enabled = true;
+                boss_r4.enabled = true;
+                tiger_r.enabled = true;
                 e1.gameObject.SetActive(true);
-                e1.transform.position = e1.start_pos;
-                e1.transform.Rotate(Vector3.up, 180);
-                e1.do_walk = 1;
+                e2.gameObject.SetActive(true);
+                elephant.SetActive(false);
+                cutter.SetActive(false);
+                c.flg_update = false;
+                transform.position = new Vector3(211.75f, 21.51f, 255.9f);
+                transform.rotation = Quaternion.Euler(0, 0, 0);
+                e1.gameObject.SetActive(true);
+                e2.gameObject.SetActive(true);
+                CameraPos.position = transform.position + transform.forward * 2 + Vector3.up * 5;
+                CameraPos.rotation = transform.rotation;
+                onElephant = false;
+                if (Vector3.Angle(transform.up, Vector3.up) > 60.0f)
+                {
+                    transform.up = Vector3.up;
+                }
             }
-            transform.rotation = Quaternion.Euler(0, 0, 0);
         }
-        if (Input.GetKeyDown("q"))
+        if (level == 2)
         {
-            if(e1.do_walk<=2 && Vector3.Distance(transform.position,e1.transform.position)<=10)
+            if (!e1.gameObject.activeSelf && !e2.gameObject.activeSelf)
             {
-                e1.gameObject.SetActive(false);
+                axe.enabled = true;
+                boss_r1.enabled = true;
+                boss_r2.enabled = true;
+                boss_r3.enabled = true;
+                boss_r4.enabled = true;
+                tiger_r.enabled = true;
+
             }
-            else if (e2.do_walk <= 2 && Vector3.Distance(transform.position, e2.transform.position) <= 10)
+            if (e1.gameObject.activeSelf && e1.do_walk > 2 && Vector3.Distance(transform.position, e1.transform.position) <= 25)
             {
-                e2.gameObject.SetActive(false);
+                Debug.Log("You got caught");
+                transform.position = new Vector3(211.75f, 21.51f, 255.9f);
+                if (!e2.gameObject.activeSelf)
+                {
+                    e2.gameObject.SetActive(true);
+                    e2.transform.position = e2.start_pos;
+                    e2.transform.Rotate(Vector3.up, 180);
+                    e2.do_walk = 1;
+                }
+                transform.rotation = Quaternion.Euler(0, 0, 0);
+            }
+            else if (e2.gameObject.activeSelf && e2.do_walk > 2 && Vector3.Distance(transform.position, e2.transform.position) <= 25)
+            {
+                Debug.Log("You got caught");
+                transform.position = new Vector3(211.75f, 21.51f, 255.9f);
+                if (!e1.gameObject.activeSelf)
+                {
+                    e1.gameObject.SetActive(true);
+                    e1.transform.position = e1.start_pos;
+                    e1.transform.Rotate(Vector3.up, 180);
+                    e1.do_walk = 1;
+                }
+                transform.rotation = Quaternion.Euler(0, 0, 0);
+            }
+            if (Input.GetKeyDown("q"))
+            {
+                if (e1.do_walk <= 2 && Vector3.Distance(transform.position, e1.transform.position) <= 10)
+                {
+                    e1.gameObject.SetActive(false);
+                }
+                else if (e2.do_walk <= 2 && Vector3.Distance(transform.position, e2.transform.position) <= 10)
+                {
+                    e2.gameObject.SetActive(false);
+                }
             }
         }
         if (!onElephant)

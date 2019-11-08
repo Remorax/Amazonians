@@ -63,6 +63,8 @@
     <Compile Include="Assets\BasicBandit\DemoSceneBasicBandit\Scripts\ButtonFunction.cs" />
     <Compile Include="Assets\BasicBandit\DemoSceneBasicBandit\Scripts\MovementCamera.cs" />
     <Compile Include="Assets\crosshairs.cs" />
+    <Compile Include="Assets\CutterMotion.cs" />
+    <Compile Include="Assets\E3M.cs" />
     <Compile Include="Assets\ElephantMove.cs" />
     <Compile Include="Assets\Enemy1Motion.cs" />
     <Compile Include="Assets\Enemy2Motion.cs" />
