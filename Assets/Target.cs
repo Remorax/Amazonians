@@ -40,6 +40,9 @@ public class Target : MonoBehaviour
         painedElephantSound();
         if (health<=0f){
             Destroy(gameObject);
+            //Debug.LogWarning(GameObject.FindGameObjectWithTag("VideoPlayer"));
+            //gameObject = GameObject.FindGameObjectWithTag("VideoPlayer").GetComponent<videoplay>;
+            //gameObject.PlayVideo();
         }
     }
 }
