@@ -11,7 +11,7 @@ public class gun : MonoBehaviour
     public Camera fpsCam;
     public ParticleSystem MuzzleFlash;
     public AudioSource MusicSource;
-
+    public BossControls boss;
 //    public videoplay VideoPlayer;
 
     // Update is called once per frame
@@ -36,12 +36,10 @@ public class gun : MonoBehaviour
     	MuzzleFlash.Play();
     	RaycastHit hit;
     	gunfire();
-    	if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit, range))
-    	{
-    		Target target = hit.transform.GetComponent<Target>();
-    		if (target) {
-    			target.TakeDamage(damage);
-    		}
+        if (Mathf.Abs(Vector3.Angle(boss.transform.position - transform.position, transform.forward)) < 20)
+        {
+
+			boss.TakeDamage(damage);
 	   	}
         //VideoPlayer.PlayVideo();
 //        VideoPlayer = FindObjectOfType<videoplay>();

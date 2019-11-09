@@ -9,10 +9,12 @@ public class Movement : MonoBehaviour {
     public float originalHeight;
     public bool isJump = false, isFall = false;
     public float gravity = 20.0f;
-    public Transform CameraPos;
+    public float health = 200.0f;
+    //public Transform CameraPos;
     public float horizontalSpeed;
     public float verticalSpeed;
-    public Transform Weapon;
+    //public Transform Weapon;
+    public GameObject Camera, Weapon;
     public Animator animator;
     public RuntimeAnimatorController anim_idle;
     public RuntimeAnimatorController anim_walk;
@@ -44,6 +46,7 @@ public class Movement : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
+        StartCoroutine(VideoPlayer.PlayVideo("vid1"));
         axe.enabled = false;
         boss_r1.enabled = false;
         boss_r2.enabled = false;
@@ -55,16 +58,32 @@ public class Movement : MonoBehaviour {
         level1comp=false;
         onElephant = false;
     	originalHeight = transform.position.y;
-        Weapon.parent = CameraPos;
-        Weapon.position = CameraPos.position + CameraPos.forward + CameraPos.right - CameraPos.up * 1.5f;
-        Weapon.rotation = CameraPos.rotation;
+        Weapon.transform.parent = Camera.transform;
+        Weapon.transform.position = Camera.transform.position + Camera.transform.forward + Camera.transform.right - Camera.transform.up * 1.5f;
+        Weapon.transform.rotation = Camera.transform.rotation;
         //VideoPlayer = FindObjectOfType<videoplay>();
-        StartCoroutine(VideoPlayer.PlayVideo("vid1"));
-//        StartCoroutine(VideoPlayer1.PlayVideo("Mission1"));
+
+        //StartCoroutine(VideoPlayer1.PlayVideo("Mission1"));
         //elephant = GameObject.Find("Elephant");
     }
     void OnCollisionEnter(Collision collision)
     {
+    }
+
+    public void TakeDamage(float amount)
+    {
+        health -= amount;
+        //Debug.LogWarning("Aahhh" + health);
+        if (health <= 0f)
+        {
+            Debug.LogWarning("Player dead.");
+            health = 200.0f;
+            //Application.Quit(); 
+            //Destroy(gameObject);
+            //Debug.LogWarning(GameObject.FindGameObjectWithTag("VideoPlayer"));
+            //gameObject = GameObject.FindGameObjectWithTag("VideoPlayer").GetComponent<videoplay>;
+            //gameObject.PlayVideo();
+        }
     }
 
     //Update is called once per frame
@@ -84,8 +103,8 @@ public class Movement : MonoBehaviour {
                 transform.position = elephant.transform.position-1000*Vector3.forward;
                 anm_elephant.enabled = true;
                 anm_elephant.speed = 0.03f;
-                CameraPos.position = elephant.transform.position + Vector3.up * 5 + Vector3.forward * (-5.0f);
-                CameraPos.rotation = elephant.transform.rotation;
+                Camera.transform.position = elephant.transform.position + Vector3.up * 5 + Vector3.forward * (-5.0f);
+                Camera.transform.rotation = elephant.transform.rotation;
                 if (level == 0)
                 {
                         level += 1;
@@ -144,8 +163,8 @@ public class Movement : MonoBehaviour {
                 c.flg_update = false;
                 transform.position = new Vector3(211.75f, 21.51f, 255.9f);
                 transform.rotation = Quaternion.Euler(0, 0, 0);
-                CameraPos.position = transform.position + transform.forward * 2 + Vector3.up * 5;
-                CameraPos.rotation = transform.rotation;
+                Camera.transform.position = transform.position + transform.forward * 2 + Vector3.up * 5;
+                Camera.transform.rotation = transform.rotation;
                 onElephant = false;
                 if (Vector3.Angle(transform.up, Vector3.up) > 60.0f)
                 {
@@ -175,7 +194,7 @@ public class Movement : MonoBehaviour {
                 boss_r3.enabled = true;
                 boss_r4.enabled = true;
                 tiger_r.enabled = true;
-                // AT game end call StartCoroutine(VideoPlayer4.PlayVideo("TheEND"));
+
             }
             if (e1.gameObject.activeSelf && e1.do_walk > 2 && Vector3.Distance(transform.position, e1.transform.position) <= 25)
             {
@@ -215,6 +234,7 @@ public class Movement : MonoBehaviour {
                 }
             }
         }
+
         if (!onElephant)
         {
             if (Input.GetKey(KeyCode.LeftShift) && Input.GetKey("w"))
@@ -275,11 +295,11 @@ public class Movement : MonoBehaviour {
             float v = verticalSpeed * Input.GetAxis("Mouse Y");
 
             transform.Rotate(0, h, 0);
-            CameraPos.position = transform.position + transform.forward * 2 + Vector3.up * 5;
-            CameraPos.rotation = transform.rotation;
-            //Weapon.position = transform.position + transform.forward * 4 + Vector3.up * 2.5f + Vector3.right * 2.0f;
+            Camera.transform.position = transform.position + transform.forward * 2 + Vector3.up * 5;
+            Camera.transform.rotation = transform.rotation;
+            //Weapon.transform.position = transform.position + transform.forward * 4 + Vector3.up * 2.5f + Vector3.right * 2.0f;
             //Quaternion q = Quaternion.AngleAxis(-20f, transform.up);
-            //Weapon.rotation = q*transform.rotation;
+            //Weapon.transform.rotation = q*transform.rotation;
             if (Vector3.Angle(transform.up, Vector3.up) > 60.0f)
             {
                 transform.up = Vector3.up;
@@ -349,16 +369,16 @@ public class Movement : MonoBehaviour {
             float v = verticalSpeed * Input.GetAxis("Mouse Y");
 
             elephant.transform.Rotate(0, h, 0);
-            CameraPos.position = elephant.transform.position + Vector3.up * 5 + Vector3.forward * (-5.0f);
-            CameraPos.rotation = elephant.transform.rotation;
-            //Weapon.position = transform.position + transform.forward * 4 + Vector3.up * 2.5f + Vector3.right * 2.0f;
+            Camera.transform.position = elephant.transform.position + Vector3.up * 5 + Vector3.forward * (-5.0f);
+            Camera.transform.rotation = elephant.transform.rotation;
+            //Weapon.transform.position = transform.position + transform.forward * 4 + Vector3.up * 2.5f + Vector3.right * 2.0f;
             //Quaternion q = Quaternion.AngleAxis(-20f, transform.up);
-            //Weapon.rotation = q*transform.rotation;
+            //Weapon.transform.rotation = q*transform.rotation;
             if (Vector3.Angle(elephant.transform.up, Vector3.up) > 60.0f)
             {
                 elephant.transform.up = Vector3.up;
             }
         }
-        //CameraPos.Rotate(v, h, 0);
+        //Camera.transform.Rotate(v, h, 0);
     }
 }
