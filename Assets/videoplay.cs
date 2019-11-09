@@ -32,11 +32,12 @@ public class videoplay : MonoBehaviour
         HideCanvas();
     }
 
-    public IEnumerator PlayVideo()
+    public IEnumerator PlayVideo(string clip_name)
     {
-        Debug.LogWarning("hello");
+        //videoPlayer.playbackSpeed = 1.0f;
+        //Debug.LogWarning("hello");
         AudioListener.pause = true;
-        videoPlayer.clip = Resources.Load<VideoClip>("Flash_Sample");
+        videoPlayer.clip = Resources.Load<VideoClip>(clip_name);
         videoPlayer.Prepare();
         WaitForSeconds waitForSeconds = new WaitForSeconds(1);
         while (!videoPlayer.isPrepared)

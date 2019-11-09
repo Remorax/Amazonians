@@ -35,6 +35,11 @@ public class Movement : MonoBehaviour {
     public bool onElephant=false;
     public int level=0;
     private bool level1comp=false;
+    public videoplay VideoPlayer;
+    public videoplay VideoPlayer1;
+    public videoplay VideoPlayer2;
+    public videoplay VideoPlayer3;
+    public videoplay VideoPlayer4;
 
 
     // Use this for initialization
@@ -53,6 +58,9 @@ public class Movement : MonoBehaviour {
         Weapon.parent = CameraPos;
         Weapon.position = CameraPos.position + CameraPos.forward + CameraPos.right - CameraPos.up * 1.5f;
         Weapon.rotation = CameraPos.rotation;
+        //VideoPlayer = FindObjectOfType<videoplay>();
+        StartCoroutine(VideoPlayer.PlayVideo("vid1"));
+//        StartCoroutine(VideoPlayer1.PlayVideo("Mission1"));
         //elephant = GameObject.Find("Elephant");
     }
     void OnCollisionEnter(Collision collision)
@@ -111,6 +119,8 @@ public class Movement : MonoBehaviour {
             c.flg_update = true;
             if(Vector3.Distance(elephant.transform.position, cutter.transform.position)<=25 && !level1comp)
             {
+                //VideoPlayer = FindObjectOfType<videoplay>();
+
                 c.s_time = Time.time;
                 level1comp = true;
                 level += 1;
@@ -122,6 +132,13 @@ public class Movement : MonoBehaviour {
                 tiger_r.enabled = true;*/
                 e1.gameObject.SetActive(true);
                 e2.gameObject.SetActive(true);
+                e1.transform.position = e1.start_pos;
+                e1.transform.Rotate(Vector3.up, 180);
+                e1.do_walk = 1;
+                e2.transform.position = e2.start_pos;
+                e2.transform.Rotate(Vector3.up, 180);
+                e2.do_walk = 1;
+
                 elephant.SetActive(false);
                 cutter.SetActive(false);
                 c.flg_update = false;
@@ -134,10 +151,22 @@ public class Movement : MonoBehaviour {
                 {
                     transform.up = Vector3.up;
                 }
+                //VideoPlayer = FindObjectOfType<videoplay>();
+                //StartCoroutine(VideoPlayer2.PlayVideo("Mission1Completed"));
+                StartCoroutine(VideoPlayer3.PlayVideo("vid2"));
             }
         }
-        if (level == 2)
+        if (level == 2 && !VideoPlayer3.videoPlayer.isPlaying)
         {
+            if (Vector3.Angle(e1.gameObject.transform.up, Vector3.up) > 60.0f)
+            {
+                e1.gameObject.transform.up = Vector3.up;
+            }
+            if (Vector3.Angle(e2.gameObject.transform.up, Vector3.up) > 60.0f)
+            {
+                e2.gameObject.transform.up = Vector3.up;
+            }
+
             if (!e1.gameObject.activeSelf && !e2.gameObject.activeSelf)
             {
                 axe.enabled = true;
@@ -146,7 +175,7 @@ public class Movement : MonoBehaviour {
                 boss_r3.enabled = true;
                 boss_r4.enabled = true;
                 tiger_r.enabled = true;
-
+                // AT game end call StartCoroutine(VideoPlayer4.PlayVideo("TheEND"));
             }
             if (e1.gameObject.activeSelf && e1.do_walk > 2 && Vector3.Distance(transform.position, e1.transform.position) <= 25)
             {
@@ -156,7 +185,7 @@ public class Movement : MonoBehaviour {
                 {
                     e2.gameObject.SetActive(true);
                     e2.transform.position = e2.start_pos;
-                    e2.transform.Rotate(Vector3.up, 180);
+                    //e2.transform.Rotate(Vector3.up, 180);
                     e2.do_walk = 1;
                 }
                 transform.rotation = Quaternion.Euler(0, 0, 0);

@@ -12,7 +12,7 @@ public class gun : MonoBehaviour
     public ParticleSystem MuzzleFlash;
     public AudioSource MusicSource;
 
-    public videoplay VideoPlayer;
+//    public videoplay VideoPlayer;
 
     // Update is called once per frame
     void Update()
@@ -44,8 +44,8 @@ public class gun : MonoBehaviour
     		}
 	   	}
         //VideoPlayer.PlayVideo();
-        VideoPlayer = FindObjectOfType<videoplay>();
-        StartCoroutine(VideoPlayer.PlayVideo());
+//        VideoPlayer = FindObjectOfType<videoplay>();
+//        StartCoroutine(VideoPlayer.PlayVideo());
 
     }
 }
