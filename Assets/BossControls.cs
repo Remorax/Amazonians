@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -11,7 +11,8 @@ public class BossControls : MonoBehaviour
     public Renderer boss_r2;
     public Renderer boss_r3;
     public Renderer boss_r4;
-    public float health = 500f;
+    public Quaternion bossOriginalRotation = Quaternion.Euler(0, 0, 0);
+    public float health = 300f;
     public int frame = 0;
     public videoplay VideoPlayer4;
 
@@ -27,7 +28,11 @@ public class BossControls : MonoBehaviour
     void Update()
     {
         if (!boss_r1.enabled)
+        {
+            health = 300.0f;
+            transform.rotation = bossOriginalRotation;
             return;
+        }
         Vector3 relativePos = Soldier.transform.position - Boss.transform.position;
         Quaternion rotation = Quaternion.LookRotation(relativePos, Vector3.up);
         if (frame % 20 == 0)
