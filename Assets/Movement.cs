@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -78,7 +78,34 @@ public class Movement : MonoBehaviour {
         {
             Debug.LogWarning("Player dead.");
             health = 200.0f;
-            //Application.Quit(); 
+            e1.gameObject.SetActive(true);
+            e2.gameObject.SetActive(true);
+            level1comp = true;
+            e1.transform.position = e1.start_pos;
+            e1.transform.Rotate(Vector3.up, 180);
+            e1.do_walk = 1;
+            e2.transform.position = e2.start_pos;
+            e2.transform.Rotate(Vector3.up, 180);
+            e2.do_walk = 1;
+
+            elephant.SetActive(false);
+            cutter.SetActive(false);
+            c.flg_update = false;
+            transform.position = new Vector3(211.75f, 21.51f, 255.9f);
+            transform.rotation = Quaternion.Euler(0, 0, 0);
+            Camera.transform.position = transform.position + transform.forward * 2 + Vector3.up * 5;
+            Camera.transform.rotation = transform.rotation;
+            onElephant = false;
+            if (Vector3.Angle(transform.up, Vector3.up) > 60.0f)
+            {
+                transform.up = Vector3.up;
+            }
+            axe.enabled = false;
+            boss_r1.enabled = false;
+            boss_r2.enabled = false;
+            boss_r3.enabled = false;
+            boss_r4.enabled = false;
+            tiger_r.enabled = false;
             //Destroy(gameObject);
             //Debug.LogWarning(GameObject.FindGameObjectWithTag("VideoPlayer"));
             //gameObject = GameObject.FindGameObjectWithTag("VideoPlayer").GetComponent<videoplay>;
@@ -198,7 +225,7 @@ public class Movement : MonoBehaviour {
             }
             if (e1.gameObject.activeSelf && e1.do_walk > 2 && Vector3.Distance(transform.position, e1.transform.position) <= 25)
             {
-                Debug.Log("You got caught");
+                Debug.LogWarning("You got caught");
                 transform.position = new Vector3(211.75f, 21.51f, 255.9f);
                 if (!e2.gameObject.activeSelf)
                 {
@@ -211,7 +238,7 @@ public class Movement : MonoBehaviour {
             }
             else if (e2.gameObject.activeSelf && e2.do_walk > 2 && Vector3.Distance(transform.position, e2.transform.position) <= 25)
             {
-                Debug.Log("You got caught");
+                Debug.LogWarning("You got caught");
                 transform.position = new Vector3(211.75f, 21.51f, 255.9f);
                 if (!e1.gameObject.activeSelf)
                 {
@@ -227,10 +254,12 @@ public class Movement : MonoBehaviour {
                 if (e1.do_walk <= 2 && Vector3.Distance(transform.position, e1.transform.position) <= 10)
                 {
                     e1.gameObject.SetActive(false);
+                    Debug.LogWarning("Killed 1");
                 }
                 else if (e2.do_walk <= 2 && Vector3.Distance(transform.position, e2.transform.position) <= 10)
                 {
                     e2.gameObject.SetActive(false);
+                    Debug.LogWarning("Killed 2");
                 }
             }
         }
