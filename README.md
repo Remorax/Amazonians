@@ -300,11 +300,11 @@ Game engine used will be unity. Since it is not a multiplayer game, no network r
 
 Unity library and available models to be used for most of the part. The remaining objects will be designed in a simple manner[using shapes] with appropriate textures .
 
-[Forest scene](https://assetstore.unity.com/packages/3d/environments/fantasy/green-forest-22762)
-[Elephant](https://assetstore.unity.com/packages/3d/characters/animals/elephant-cartoon-63668)
-[Forest officer](https://assetstore.unity.com/packages/3d/characters/sci-fi-officer-captain-52376)
-[Village](https://assetstore.unity.com/packages/3d/characters/village-houses-pack-63695)
-[Tribals](http://unityassetcollection.com/fantasy-horde-villagers-free-download/)
-[Weapon1](https://assetstore.unity.com/3d/props/guns)
-[Weapon2](https://assetstore.unity.com/packages/3d/props/weapons/elven-long-bow-17728)
+* [Forest scene](https://assetstore.unity.com/packages/3d/environments/fantasy/green-forest-22762)
+* [Elephant](https://assetstore.unity.com/packages/3d/characters/animals/elephant-cartoon-63668)
+* [Forest officer](https://assetstore.unity.com/packages/3d/characters/sci-fi-officer-captain-52376)
+* [Village](https://assetstore.unity.com/packages/3d/characters/village-houses-pack-63695)
+* [Tribals](http://unityassetcollection.com/fantasy-horde-villagers-free-download/)
+* [Weapon1](https://assetstore.unity.com/3d/props/guns)
+* [Weapon2](https://assetstore.unity.com/packages/3d/props/weapons/elven-long-bow-17728)
 
